@@ -1,5 +1,13 @@
 import express from 'express';
-import { CreatePost, GetFeedPosts, GetUserPosts, LikePost,  AddComment, CreateStory, GetStories} from '../controllers/posts.controllers.js';
+import { 
+    CreatePost,
+    GetFeedPosts, 
+    GetUserPosts, 
+    LikePost,  
+    AddComment, 
+    CreateStory, 
+    GetStories
+} from '../controllers/posts.controllers.js';
 import { verifyToken } from '../middleware/auth.middleware.js';
 import { uploadimage , uploadContent} from '../middleware/file.middleware.js';
 
