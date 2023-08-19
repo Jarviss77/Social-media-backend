@@ -214,6 +214,8 @@ The following properties of every endpoint will be descibed in this file:
 }
 ```
 
+---
+
 ## Posts Endpoints
 > *Base URI: `/posts`*
 
