@@ -1,4 +1,4 @@
-import bycrypt from 'bcrypt';
+import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import User from '../models/user.models.js';
 
@@ -19,10 +19,10 @@ export const register = async (req, res) => {
         } = req.body;
 
         const saltrounds = 10;
-        const salt = await bycrypt.genSalt(saltrounds);
-        const hashedPassword = await bycrypt.hash(Password, salt);
+        const salt = await bcrypt.genSalt(saltrounds);
+        const hashedPassword = await bcrypt.hash(Password, salt);
 
-        new User({
+        const newUser = new User({
             FirstName,
             LastName,
             Email,
@@ -34,11 +34,11 @@ export const register = async (req, res) => {
             viewedprofile: Math.floor(Math.random() * 100000),
             impressions: Math.floor(Math.random() * 100000),
         });
-        const newUser = await User.save();
+        const savedUser = await newUser.save();
         res.status(201).json({
-            FirstName: newUser.FirstName, 
-            LastName: newUser.LastName, 
-            Email: newUser.Email });
+            FirstName: savedUser.FirstName, 
+            LastName: savedUser.LastName, 
+            Email: savedUser.Email });
 
 
 
@@ -60,7 +60,7 @@ export const login = async(req, res) =>{
         const user = await User.findOne({Email : Email});
         if(!user) return res.status(404).json({message: "User does not exist"});
 
-        const isPasswordCorrect = await bycrypt.compare(Password, user.Password);
+        const isPasswordCorrect = await bcrypt.compare(Password, user.Password);
         if(!isPasswordCorrect) return res.status(400).json({message: "Invalid Email ID or Password"});
 
         const token = jwt.sign({Email: user.Email, id: user._id}, process.env.JWT_KEY);
