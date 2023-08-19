@@ -320,7 +320,7 @@ The following properties of every endpoint will be descibed in this file:
 }
 ```
 
-#### `/`
+#### `/stories`
 
 - **METHOD:** GET
 - **Authorized:** True
@@ -344,7 +344,7 @@ The following properties of every endpoint will be descibed in this file:
 }
 ```
 
-#### `/`
+#### `/stories`
 
 - **METHOD:** POST
 - **Authorized:** True

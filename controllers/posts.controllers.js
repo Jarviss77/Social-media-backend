@@ -1,8 +1,6 @@
 import Post from '../models/posts.models.js';
 import Story from '../models/story.models.js';
-// const socketIo = require("socket.io");
-
-// const io = socketIo();
+import { io } from '../app.js';
 
 export const CreatePost = async (req, res) => {
     try{
@@ -25,7 +23,7 @@ export const CreatePost = async (req, res) => {
 
         const post = await Post.find();
 
-        io.emit("newPost", newpost);
+        io.emit("NewPost", newpost);
 
         res.status(201).json(post);
     }
@@ -75,7 +73,7 @@ export const LikePost = async (req, res) => {
         else{
             post.likes.set(userId, true);
 
-            io.emit("likePost", post);
+            io.emit("LikePost", post);
         }
 
         const updatedPost = await post.findByAndUpdate(
@@ -112,7 +110,7 @@ export const AddComment = async (req, res) => {
         post.comments.push(newComment);
         await post.save();
 
-        io.emit("newComment", post);
+        io.emit("NewComment", post);
 
         res.status(201).json(newComment);
     } 
@@ -131,7 +129,7 @@ export const CreateStory = async (req, res) => {
 
         await Story.save();
 
-        io.emit("newStory", Story);
+        io.emit("NewStory", Story);
 
         res.status(201).json(Story);
     }

@@ -21,7 +21,7 @@ dotenv.config();
 const app = express();
 
 const server = http.createServer(app);
-const io = new Server(server);
+
 
 app.use(express.static("public"));
 app.use(express.json());
@@ -53,34 +53,56 @@ mongoose.connect(process.env.MONGO_URL, {
 
 // Socket.io
 
+const io = new Server(server);
 
-io.on("connection", (socket) => {
+export const InitializeSocket = () => {
 
-    console.log("User connected: ", socket.id);
 
-    socket.on("disconnect", () => {
+    io.on("connection", (socket) => {
 
-        console.log("User disconnected: ", socket.id);
-    });
+        console.log("User connected: ", socket.id);
+    
+        socket.on("disconnect", () => {
+    
+            console.log("User disconnected: ", socket.id);
+        });
+    
+        socket.on("NewPost", (data) => {
+            console.log("New Post: ", data);
+            socket.broadcast.emit("NewPost", data);
+        });
+    
+        socket.on("NewLike", (data) => {
+            console.log("New Like:", data);
+            socket.broadcast.emit("LikePost", data);
+    
+        });
+    
+        socket.on("NewFriend", (data) => {
+            console.log("New Friend: ", data);
+            socket.broadcast.emit("NewFriend", data);
+            
+        });
 
-    socket.on("NewPost", (data) => {
-        console.log("New Post: ", data);
-        socket.broadcast.emit("NewPost", data);
-    });
+        socket.on("NewComment", (data) => {
+            console.log("New Comment: ", data);
+            socket.broadcast.emit("NewComment", data);
+            
+        });
 
-    socket.on("NewLike", (data) => {
-        console.log("New Like:", data);
-        socket.broadcast.emit("NewLike", data);
+        socket.on("NewStory", (data) => {
+            console.log("New Story: ", data);
+            socket.broadcast.emit("NewStory", data);
+            
+        });
+    
+    }); 
 
-    });
+}
 
-    socket.on("NewFriend", (data) => {
-        console.log("New Friend: ", data);
-        socket.broadcast.emit("NewFriend", data);
-        
-    });
+export { io };
 
-}); 
+
 
 
 

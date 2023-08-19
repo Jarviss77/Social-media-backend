@@ -1,5 +1,5 @@
 import User from '../models/user.models.js';
-// import io from 'socket.io';
+import { io } from '../app.js';
 
 export const getUser = async (req, res) => {
     try {
