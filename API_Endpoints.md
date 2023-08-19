@@ -77,6 +77,7 @@ The following properties of every endpoint will be descibed in this file:
     "Password": "1234abcd",
     "Email": "test@gmail.com",
     "PicturePath": "photo.jpg",
+    "Friends": "[]",
     "location": "Delhi",
     "occupation": "Student",
 }
@@ -333,7 +334,7 @@ The following properties of every endpoint will be descibed in this file:
         "ContentPath": "video.mp4",
         "description": "This is a test description",
         "ExpiresIn": "2021-08-20T12:00:00.000Z",
-    }
+    },
     {
         "userId": "1757",
         "ContentPath": "video2.mp4",
