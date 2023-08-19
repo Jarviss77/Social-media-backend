@@ -19,7 +19,7 @@ export const register = async (req, res) => {
         } = req.body;
 
         const saltrounds = 10;
-        const salt = await bycrypt.genSalt({ rounds: saltrounds });
+        const salt = await bycrypt.genSalt(saltrounds);
         const hashedPassword = await bycrypt.hash(Password, salt);
 
         new User({
@@ -57,7 +57,7 @@ export const login = async(req, res) =>{
             Password,
         } = req.body;
 
-        const user = await User.FindOne({Email : Email});
+        const user = await User.findOne({Email : Email});
         if(!user) return res.status(404).json({message: "User does not exist"});
 
         const isPasswordCorrect = await bycrypt.compare(Password, user.Password);
