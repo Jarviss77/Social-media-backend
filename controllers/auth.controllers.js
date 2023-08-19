@@ -19,7 +19,7 @@ export const register = async (req, res) => {
         } = req.body;
 
         const saltrounds = 10;
-        const salt = await bycrypt.genSalt(saltrounds);
+        const salt = await bycrypt.genSalt({ rounds: saltrounds });
         const hashedPassword = await bycrypt.hash(Password, salt);
 
         new User({
