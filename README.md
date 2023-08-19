@@ -111,7 +111,7 @@ npm start
 
 ### Live Deployment 
 
-- The backend of this project is deployed on Render.com and can be accessed using the following link[https://webd-task-2.onrender.com]
+- The backend of this project is deployed on Render.com and can be accessed using the following [link](https://webd-task-2.onrender.com)
 
 
 
