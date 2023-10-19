@@ -23,7 +23,7 @@ An error response from the server will look like this:
 ```json
 {
   "status": "error",
-  "error": "Error Message for the developer",
+  "error": "Error Message for the developer"
 }
 ```
 
@@ -50,7 +50,7 @@ The following properties of every endpoint will be descibed in this file:
 ```json
 {
     "email": "test@gmail.com",
-    "password": "1234abcd",
+    "password": "1234abcd"
 }
 ```
 - **Success Status Code:** 200
@@ -59,7 +59,7 @@ The following properties of every endpoint will be descibed in this file:
 ```json
 {
     "user": "abcd1234",
-    "secret": "token",
+    "secret": "token"
 }
 ```
 
@@ -79,7 +79,7 @@ The following properties of every endpoint will be descibed in this file:
     "PicturePath": "photo.jpg",
     "Friends": "[]",
     "location": "Delhi",
-    "occupation": "Student",
+    "occupation": "Student"
 }
 ```
 - **Success Status Code:** 200
@@ -88,7 +88,7 @@ The following properties of every endpoint will be descibed in this file:
 {
     "FirstName": "Jarvis",
     "LastName": "Bruh",
-    "Email": "test@gmail.com",
+    "Email": "test@gmail.com"
 }
 ```
 
@@ -136,7 +136,7 @@ The following properties of every endpoint will be descibed in this file:
             "Friends": "[]",
             "viewedProfile": "1345",
             "impressions": "1873"
-        },
+        }
     ],
     "viewedProfile": "1282",
     "impressions": "1092",
@@ -177,8 +177,8 @@ The following properties of every endpoint will be descibed in this file:
             "Friends": "[]",
             "viewedProfile": "1345",
             "impressions": "1873"
-        },
-        ],
+        }
+        ]
 }
 ```
 
@@ -190,7 +190,7 @@ The following properties of every endpoint will be descibed in this file:
 - **Request Parameters:**
 ```json
 {
-    "_id": "1737",
+    "_id": "1737"
 }
 ```
 - **Success Status code:** 200
@@ -209,8 +209,8 @@ The following properties of every endpoint will be descibed in this file:
             "Friends": "[]",
             "viewedProfile": "1345",
             "impressions": "1873"
-        },
-        ],
+        }
+        ]
 }
 ```
 
@@ -358,7 +358,7 @@ The following properties of every endpoint will be descibed in this file:
     "userId": "1724",
     "description": "This is a test description",
     "ContentPath": "video.mp4",
-    "ExpiresIn": "2021-08-20T12:00:00.000Z",
+    "ExpiresIn": "2021-08-20T12:00:00.000Z"
 }
 ```
 - **Success Status Code:** 201
@@ -368,7 +368,7 @@ The following properties of every endpoint will be descibed in this file:
     "userId": "1724",
     "description": "This is a test description",
     "ContentPath": "video.mp4",
-    "ExpiresIn": "2021-08-20T12:00:00.000Z",
+    "ExpiresIn": "2021-08-20T12:00:00.000Z"
 }
 ```
 
@@ -380,7 +380,7 @@ The following properties of every endpoint will be descibed in this file:
 - **Query Parameters:**
 ```json
 {
-    "userId": "1724",
+    "userId": "1724"
 }
 ```
 - **Success Status Code:** 200
@@ -451,7 +451,7 @@ The following properties of every endpoint will be descibed in this file:
                     "PicturePath": "photo2.jpg",
                     "location": "Delhi",
                     "occupation": "Student",
-                }
+                },
                 {
                     "Id": "1757",
                     "FirstName": "Promaster",
@@ -484,7 +484,7 @@ The following properties of every endpoint will be descibed in this file:
 - **Request Parameters**
 ```json
 {
-    "Id": "1724",
+    "Id": "1724"
 }
 ```
 - **Success Status Code:** 201
@@ -492,7 +492,7 @@ The following properties of every endpoint will be descibed in this file:
 ```json
 {
     "userId": "1757",
-    "commentText": "This a test comment written on id: 1724's post",
+    "commentText": "This a test comment written on id: 1724's post"
 }
 ```
 

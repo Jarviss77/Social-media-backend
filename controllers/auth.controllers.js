@@ -17,11 +17,11 @@ export const register = async (req, res) => {
             location,
             occupation
         } = req.body;
-
+        console.log(Password)
         const saltrounds = 10;
         const salt = await bcrypt.genSalt(saltrounds);
         const hashedPassword = await bcrypt.hash(Password, salt);
-
+        console.log(hashedPassword);
         const newUser = new User({
             FirstName,
             LastName,
@@ -43,6 +43,7 @@ export const register = async (req, res) => {
 
 
     } catch (err) {
+        console.log(err);
         res.status(500).json({error: err.message});
     }
 }
